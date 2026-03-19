@@ -1,0 +1,14 @@
+name: Add 1 and 1
+
+on:
+  push:
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Compute 1 + 1 and display result
+        run: |
+          result=$((1 + 1))
+          echo "1 + 1 = $result"
