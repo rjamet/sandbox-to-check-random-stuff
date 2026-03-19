@@ -1,0 +1,19 @@
+name: Add 1 and 1
+
+on:
+  push:
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    permissions: {}
+    env:
+      AAAAA: ""
+      BBBBB: "fail"
+      CCCCC: "cccccc"
+      DDDDD: "ok"
+    steps:
+      - name: Does a weird envvar dance and hopefully returns DDDDD
+        env:
+          RESULT: "${{ env.AAAAA && env.BBBBB || env.CCCCC && env.DDDDD}}"
+        run: echo $RESULT
